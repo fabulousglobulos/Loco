@@ -1,0 +1,46 @@
+<mat-card class="master-card">
+  <mat-card-header>
+    <mat-card-title>Numero Compl&eacute;mentaire</mat-card-title>
+    <mat-card-subtitle>from 1 to 10 ...</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <ngx-charts-line-chart
+      [view]="view"
+      [scheme]="colorScheme"
+      [legend]="legend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [timeline]="timeline"
+      [results]="multiWithAllSeries"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)"
+      >
+    </ngx-charts-line-chart>
+
+    <ngx-charts-line-chart
+      [view]="view"
+      [scheme]="colorScheme"
+      [legend]="legend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [timeline]="timeline"
+      [results]="multiWithUniqueSerie"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)"
+      >
+    </ngx-charts-line-chart>
+
+  </mat-card-content>
+</mat-card>
+
