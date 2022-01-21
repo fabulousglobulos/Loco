@@ -14,13 +14,13 @@ namespace Api.Controllers
             this._tirageService = tirageService;
         }
 
-        [HttpGet("Raw")]
-        public ActionResult Raw()
-        {
-            Console.WriteLine("Getting raw  result for client");
+        //[HttpGet("Raw")]
+        //public ActionResult Raw()
+        //{
+        //    Console.WriteLine("Getting raw  result for client");
 
-            return Ok(_tirageService.LoadFromFile());
-        }
+        //    return Ok(_tirageService.LoadFromFile());
+        //}
 
 
         [HttpGet("SeriesAllAdditionalNumber")]

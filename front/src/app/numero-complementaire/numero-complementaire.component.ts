@@ -14,18 +14,15 @@ export class NumeroComplementaireComponent implements OnInit {
   get periodDef(): any { return this._period; }
   set periodDef(p: any) {
     this._period = p;
-    console.debug(p)
 
     if (p) {
-      console.log(String(p.start));
-      console.log(String(p.end));
 
       this.clientTirageService.getSeriesNumberComplementaireFromApi(p.start, p.end).subscribe(x => {
         this.multiWithAllSeries = x
       });
 
       this.clientTirageService.getSerieUniqueNumberComplementaireFromApi(p.start, p.end).subscribe(x => {
-        this.multiWithUniqueSerie = x
+        this.multiWithUniqueSerie = x[0].series
       });
 
     }
@@ -42,7 +39,7 @@ export class NumeroComplementaireComponent implements OnInit {
   }
 
 
-  view: any[] = [1700, 700];
+  view: any[] = [1500, 500];
   // options
   legend: boolean = true;
   showLabels: boolean = true;
@@ -52,7 +49,7 @@ export class NumeroComplementaireComponent implements OnInit {
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Numero Complementaire';
-  yAxisLabel: string = 'Time';
+  yAxisLabel: string = '#';
   timeline: boolean = true;
 
   colorScheme = {

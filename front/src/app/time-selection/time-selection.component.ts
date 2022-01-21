@@ -20,16 +20,6 @@ export class TimeSelectionComponent implements OnInit {
 
     this.inputStartDate= this.startdate
     this.inputEndDate=new Date();
-   // const mystart= new Date();
-  //  this.startdate.setDate(this.startdate.getDate() - 10);
-
-    //this.startdate = new FormControl(new Date(mystart))  
-
-
-    // this.campaignOne = new FormGroup({
-    //   start: new FormControl(new Date(year, month, 13)),
-    //   end: new FormControl(new Date(year, month, 16)),
-    // });
   }
 
   ngOnInit(): void {

@@ -1,3 +1,4 @@
+using Api.DAL;
 using Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +22,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ITirageService, TirageService>();
-
+builder.Services.AddScoped<ITirageDataAccess, TirageDataAccess>();
 
 var app = builder.Build();
 

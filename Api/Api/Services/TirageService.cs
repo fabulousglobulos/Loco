@@ -1,10 +1,10 @@
-﻿namespace Api.Services
+﻿using Api.DAL;
+
+namespace Api.Services
 {
 
     public interface ITirageService
     {
-        List<TirageResult> LoadFromFile();
-
         List<Series> SeriesAllAdditionalNumber(DateTime from, DateTime to);
 
         List<Series> SeriesUniquelAdditionalNumber(DateTime from, DateTime to);
@@ -14,45 +14,20 @@
     {
 
         private readonly ILogger<TirageService> _logger;
+        private readonly ITirageDataAccess _dataAccess;
 
-        public TirageService(ILogger<TirageService> logger)
+        public TirageService(ILogger<TirageService> logger, ITirageDataAccess dataAccess)
         {
             _logger = logger;
+            _dataAccess = dataAccess;
         }
 
-        public List<TirageResult> LoadFromFile()
-        {
-            string folder = @"C:\Users\Vincent\Documents\dev\loto";
-            List<TirageResult> tirages = new List<TirageResult>();
-            var csvs = Directory.EnumerateFiles(folder, "*.csv").ToList();
-            csvs.ForEach(csvs =>
-            {
-                var raws = File.ReadAllLines(csvs).ToList();
-
-                raws.ForEach(raw =>
-               {
-                   var data = raw.Split(';');
-                   TirageResult tirage = new TirageResult
-                   {
-                       Date = Convert.ToDateTime(data[0]),
-                       Boule1 = Convert.ToInt32(data[1]),
-                       Boule2 = Convert.ToInt32(data[2]),
-                       Boule3 = Convert.ToInt32(data[3]),
-                       Boule4 = Convert.ToInt32(data[4]),
-                       Boule5 = Convert.ToInt32(data[5]),
-                       Complementaire = Convert.ToInt32(data[6])
-                   };
-                   tirages.Add(tirage);
-               });
-
-            });
-            return tirages.OrderBy(x => x.Date).ToList();
-        }
+       
 
         public List<Series> SeriesAllAdditionalNumber(DateTime from, DateTime to)
         {
 
-            var raw = LoadFromFile().Where(r => r.Date >= from && r.Date <= to).ToList();
+            var raw = _dataAccess.LoadFromFile().Where(r => r.Date >= from && r.Date <= to).ToList();
 
 
 
@@ -82,7 +57,7 @@
         public List<Series> SeriesUniquelAdditionalNumber(DateTime from, DateTime to)
         {
 
-            var raw = LoadFromFile().Where(r => r.Date >= from && r.Date <= to).ToList();
+            var raw = _dataAccess.LoadFromFile().Where(r => r.Date >= from && r.Date <= to).ToList();
 
             var series = new Series()
             {
