@@ -1,4 +1,6 @@
-﻿namespace Api.DAL
+﻿using System.Globalization;
+
+namespace Api.DAL
 {
 
     public interface ITirageDataAccess
@@ -15,6 +17,8 @@
         {
             if (_tirages == null)
             {
+                var cultureInfo = new CultureInfo("fr-FR");
+
 
                 string folder = @"RawData";
                 List<TirageResult> tirages = new List<TirageResult>();
@@ -28,7 +32,7 @@
                         var data = raw.Split(';');
                         TirageResult tirage = new TirageResult
                         {
-                            Date = Convert.ToDateTime(data[0]),
+                            Date = DateTime.Parse(data[0], cultureInfo),
                             Boule1 = Convert.ToInt32(data[1]),
                             Boule2 = Convert.ToInt32(data[2]),
                             Boule3 = Convert.ToInt32(data[3]),

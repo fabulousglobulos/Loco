@@ -10,17 +10,23 @@ namespace Api.Controllers
         private readonly ITirageService _tirageService;
 
         public TiragesController(ITirageService tirageService)
-        {
+        {            
             this._tirageService = tirageService;
         }
 
-        //[HttpGet("Raw")]
-        //public ActionResult Raw()
-        //{
-        //    Console.WriteLine("Getting raw  result for client");
+        [HttpGet("Hello")]
+        public ActionResult Hello()
+        {
+            var raw = _tirageService.Raw(DateTime.MinValue, DateTime.MaxValue);
+            return Ok($"Hello from API with {raw.Count()} series");
+        }
 
-        //    return Ok(_tirageService.LoadFromFile());
-        //}
+        [HttpGet("Raw")]
+        public ActionResult Raw()
+        {
+            var raw = _tirageService.Raw(DateTime.MinValue, DateTime.MaxValue);
+            return Ok(raw);
+        }
 
 
         [HttpGet("SeriesAllAdditionalNumber")]

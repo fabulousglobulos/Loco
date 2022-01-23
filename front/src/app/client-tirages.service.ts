@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ClientTiragesService {
 
-  url: string = "https://localhost:7122/Tirages";
+  url: string = "https://api-loto.azurewebsites.net/Tirages";
 
   constructor(private http: HttpClient) { }
 

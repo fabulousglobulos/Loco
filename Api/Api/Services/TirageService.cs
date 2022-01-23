@@ -5,6 +5,8 @@ namespace Api.Services
 
     public interface ITirageService
     {
+        List<TirageResult> Raw(DateTime from, DateTime to);
+
         List<Series> SeriesAllAdditionalNumber(DateTime from, DateTime to);
 
         List<Series> SeriesUniquelAdditionalNumber(DateTime from, DateTime to);
@@ -22,7 +24,11 @@ namespace Api.Services
             _dataAccess = dataAccess;
         }
 
-       
+        public List<TirageResult> Raw(DateTime from, DateTime to)
+        {
+            var raw = _dataAccess.LoadFromFile().Where(r => r.Date >= from && r.Date <= to).ToList();
+            return raw;
+        }
 
         public List<Series> SeriesAllAdditionalNumber(DateTime from, DateTime to)
         {
