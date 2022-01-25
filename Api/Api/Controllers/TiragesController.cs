@@ -22,9 +22,10 @@ namespace Api.Controllers
         }
 
         [HttpGet("Raw")]
-        public ActionResult Raw()
+        public ActionResult Raw(DateTime from, DateTime to)
         {
-            var raw = _tirageService.Raw(DateTime.MinValue, DateTime.MaxValue);
+            Console.WriteLine($"Getting Seriesresult for SeriesAllAdditionalNumber from:{from.ToString("d")} to:{to.ToString("d")}");
+            var raw = _tirageService.Raw(from, to);
             return Ok(raw);
         }
 

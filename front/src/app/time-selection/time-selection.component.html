@@ -4,8 +4,6 @@
   </mat-toolbar>
 </p>
 
-<h1></h1> 
-
 <mat-card class="master-card"> 
   <mat-card-header>
     <mat-card-title>Time frame selection</mat-card-title>
@@ -33,7 +31,55 @@
     <button mat-raised-button color="primary" (click)="loadPeriod()">Load</button>
 
   </mat-card-actions>
-</mat-card>
+</mat-card> 
 
 
-<app-numero-complementaire [periodDef]="periodDef" ></app-numero-complementaire>
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Numero Compl&eacute;mentaire
+      </mat-panel-title>
+      <mat-panel-description>
+        from 1 to 10 ...
+        <!-- <mat-icon>account_circle</mat-icon> -->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-numero-complementaire [periodDef]="periodDef" ></app-numero-complementaire>
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>First name</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Age</mat-label>
+      <input matInput type="number" min="1">
+    </mat-form-field> -->
+
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        All 5 numbers
+      </mat-panel-title>
+      <mat-panel-description>
+        from 1 to 49 ...
+        <!-- <mat-icon>date_range</mat-icon> -->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-all-numbers [periodDef]="periodDef" ></app-all-numbers>
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly>
+    </mat-form-field>
+    <mat-datepicker #picker></mat-datepicker> -->
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!-- <app-numero-complementaire [periodDef]="periodDef" ></app-numero-complementaire>
+
+<app-all-numbers [periodDef]="periodDef" ></app-all-numbers> -->

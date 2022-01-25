@@ -15,12 +15,18 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms'; 
 import { MatToolbarModule } from '@angular/material/toolbar'
 import {MatCardModule} from '@angular/material/card'
-import{MatButtonModule} from '@angular/material/button'
+import{MatButtonModule} from '@angular/material/button';
+import { AllNumbersComponent } from './all-numbers/all-numbers.component'
+//import { MatAccordion ,MatExpansionPanel ,MatExpansionPanelHeader} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {DatePipe} from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
     NumeroComplementaireComponent,
-    TimeSelectionComponent
+    TimeSelectionComponent,
+    AllNumbersComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +41,10 @@ import{MatButtonModule} from '@angular/material/button'
     FormsModule,
     MatToolbarModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,    
+    MatExpansionModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

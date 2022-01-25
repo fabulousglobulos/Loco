@@ -1,5 +1,5 @@
 export interface TirageResult {
-    dateTirage: Date;
+    date: Date;
     boule1: number;
     boule2: number;
     boule3: number;
