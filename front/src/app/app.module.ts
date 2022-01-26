@@ -20,6 +20,9 @@ import { AllNumbersComponent } from './all-numbers/all-numbers.component'
 //import { MatAccordion ,MatExpansionPanel ,MatExpansionPanelHeader} from '@angular/material/expansion';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {DatePipe} from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import {DatePipe} from '@angular/common';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,    
-    MatExpansionModule
+    MatExpansionModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatIconModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

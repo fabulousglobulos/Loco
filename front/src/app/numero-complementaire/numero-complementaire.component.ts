@@ -1,6 +1,6 @@
-import { Component, ComponentFactoryResolver, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ClientTiragesService } from '../client-tirages.service';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 @Component({
   selector: 'app-numero-complementaire',
